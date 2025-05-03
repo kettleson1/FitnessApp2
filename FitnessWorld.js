@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, Button, ScrollView, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 
+
 const PopularworkoutPlans = [
   { id: '1', title: 'Full Body Workout', description: '45 minutes of full body exercise', duration: '45 min', imageUrl: 'https://images.unsplash.com/photo-1711623350002-d97138f35bf2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
   { id: '2', title: 'Cardio Blast', description: '30 minutes of intense cardio training', duration: '30 min', imageUrl: 'https://images.unsplash.com/photo-1723908902669-0878e08aa41c?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
@@ -30,19 +31,43 @@ export default function FitnessWorld() {
 
 
       {/* Featured Training Types Section */}
-      <View>
-        <Text>Featured Training Types</Text>
+      <View style={styles.section}>
+        <Text style={styles.heading}>Featured Training Types</Text>
       </View>
 
       {/*Popular Workout Plans Section */}
-    
-
+      <View style={styles.section}>
+        <Text style={styles.heading}>Popular Workout Plans</Text>
+        <FlatList
+          horizontal
+          data={PopularWorkoutPlans}
+          keyExtractor={(item) => item.id}
+          renderItem={renderWorkoutCard}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
+      
 
       {/*Intense Workout Plans Section*/}
-
+      <View style={styles.section}>
+        <Text style={styles.heading}>Intense Workout Plans</Text>
+        <FlatList
+          horizontal
+          data={IntenseWorkoutPlans}
+          keyExtractor={(item) => item.id}
+          renderItem={renderWorkoutCard}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
       
     </ScrollView>
   );
 }
 
 
+
+const styles = StyleSheet.create({
+
+
+  
+})
