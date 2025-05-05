@@ -75,6 +75,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: '#ff7f00',
   },
+  
+
   headerbenefits: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -89,7 +91,7 @@ const styles = StyleSheet.create({
   workoutDescp: {
     color: 'white',
     marginBottom: 20,
-    textAlign: 'center',
+    textAlign: 'left',
   },
   heading: {
     fontSize: 20,
