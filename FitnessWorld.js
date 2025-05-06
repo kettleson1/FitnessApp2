@@ -40,20 +40,47 @@ export default function FitnessWorld() {
         <Text style={styles.header}>Featured Training Types</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={styles.trainingTypeCard}>
-      <Text style={styles.trainingTypeText}>Strength</Text>
-    </View>
-      <View style={styles.trainingTypeCard}>
-        <Text style={styles.trainingTypeText}>Cardio</Text>
+          <Image
+          source={{
+            uri: 'https://images.unsplash.com/photo-1589579234096-25cb6b83e021?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+           }}
+          style={styles.trainingImage}
+          />
+          <Text style={styles.trainingTypeText}>Strength Training</Text>
       </View>
-       <View style={styles.trainingTypeCard}>
-         <Text style={styles.trainingTypeText}>Yoga</Text>
-       </View>
-        <View style={styles.trainingTypeCard}>
-          <Text style={styles.trainingTypeText}>HIIT</Text>
-         </View>
+      <View style={styles.trainingTypeCard}>
+    <Image
+      source={{
+        uri: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=800&q=80',
+      }}
+      style={styles.trainingImage}
+    />
+    <Text style={styles.trainingTypeText}>Cardio</Text>
+  </View>
+
+  <View style={styles.trainingTypeCard}>
+    <Image
+      source={{
+        uri: 'https://images.unsplash.com/photo-1599058917212-d750089bc07f?auto=format&fit=crop&w=800&q=80',
+      }}
+      style={styles.trainingImage}
+    />
+    <Text style={styles.trainingTypeText}>Yoga</Text>
+  </View>
+
+  <View style={styles.trainingTypeCard}>
+    <Image
+      source={{
+        uri: 'https://images.unsplash.com/photo-1611251135344-205b3d270c3a?auto=format&fit=crop&w=800&q=80',
+      }}
+      style={styles.trainingImage}
+    />
+    <Text style={styles.trainingTypeText}>HIIT</Text>
+  </View>
         </ScrollView>
       </View>
-
+      Photo by <a href="https://unsplash.com/@iamtru?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Trust "Tru" Katsande</a> on <a href="https://unsplash.com/photos/women-taking-exercise-on-black-stationary-bikes-in-front-of-gray-concrete-wall-A_ftsTh53lM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+    
 
       <View style={styles.section}>
         <Text style={styles.heading}>Popular Workout Plans</Text>
@@ -163,5 +190,22 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
     textAlign: 'center',
-  }
+  },
+  trainingTypeCard: {
+    backgroundColor: '#fff',
+    marginRight: 20,
+    width: 150,
+    alignItems: 'center',
+  },
+  trainingImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+  },
+  trainingTitle: {
+    marginTop: 10,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#4caf50',
+  },
 });
