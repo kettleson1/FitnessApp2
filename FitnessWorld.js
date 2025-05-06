@@ -35,6 +35,26 @@ export default function FitnessWorld() {
         <Text style={styles.text}>Mental clarity and focus</Text>
       </View>
 
+      {/* Featured Traning Types Section */}
+      <View style={styles.section}>
+        <Text style={styles.header}>Featured Training Types</Text>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <View style={styles.trainingTypeCard}>
+      <Text style={styles.trainingTypeText}>Strength</Text>
+    </View>
+      <View style={styles.trainingTypeCard}>
+        <Text style={styles.trainingTypeText}>Cardio</Text>
+      </View>
+       <View style={styles.trainingTypeCard}>
+         <Text style={styles.trainingTypeText}>Yoga</Text>
+       </View>
+        <View style={styles.trainingTypeCard}>
+          <Text style={styles.trainingTypeText}>HIIT</Text>
+         </View>
+        </ScrollView>
+      </View>
+
+
       <View style={styles.section}>
         <Text style={styles.heading}>Popular Workout Plans</Text>
         <FlatList
@@ -56,6 +76,7 @@ export default function FitnessWorld() {
           showsHorizontalScrollIndicator={false}
         />
       </View>
+
     </ScrollView>
   );
 }
@@ -125,4 +146,22 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#888',
   },
+
+  trainingTypeCard: {
+    backgroundColor: '#fff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    marginRight: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 120,
+  },
+  
+  trainingTypeText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+    textAlign: 'center',
+  }
 });
