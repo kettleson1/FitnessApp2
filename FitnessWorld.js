@@ -79,8 +79,7 @@ export default function FitnessWorld() {
   </View>
         </ScrollView>
       </View>
-      Photo by <a href="https://unsplash.com/@iamtru?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Trust "Tru" Katsande</a> on <a href="https://unsplash.com/photos/women-taking-exercise-on-black-stationary-bikes-in-front-of-gray-concrete-wall-A_ftsTh53lM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-    
+         
 
       <View style={styles.section}>
         <Text style={styles.heading}>Popular Workout Plans</Text>
@@ -190,12 +189,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
     textAlign: 'center',
-  },
-  trainingTypeCard: {
-    backgroundColor: '#fff',
-    marginRight: 20,
-    width: 150,
-    alignItems: 'center',
+
   },
   trainingImage: {
     width: 150,
