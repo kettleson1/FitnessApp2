@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ScrollView, FlatList, StyleSheet } from 'react-native';
+import { View, Text, Image, ScrollView, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 
 const PopularWorkoutPlans = [
   { id: '1', title: 'Full Body Workout', description: '45 minutes of full body exercise', duration: '45 min', imageUrl: 'https://images.unsplash.com/photo-1711623350002-d97138f35bf2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
@@ -28,6 +28,13 @@ export default function FitnessWorld() {
       <View>
         <Text style={styles.header}>Start Your Fitness Journey</Text>
         <Text style={styles.workoutDescp}>Welcome to the fitness journey. Let’s crush your goals together!</Text>
+        <TouchableOpacity
+          style={styles.joinButton}
+          onPress={() => alert('Joined Fitness Journey')}
+        testID="joinWorkoutButton"
+      >
+  <Text style={styles.buttonText}>Join Now</Text>
+</TouchableOpacity>
         <Text style={styles.headerbenefits}>Benefits of Our Fitness Programs</Text>
         <Text style={styles.text}>Build muscle strength</Text>
         <Text style={styles.text}>Improve cardiovascular health</Text>
@@ -59,24 +66,22 @@ export default function FitnessWorld() {
   </View>
 
   <View style={styles.trainingTypeCard}>
-    <Image
-      source={{
-        uri: 'https://images.unsplash.com/photo-1599058917212-d750089bc07f?auto=format&fit=crop&w=800&q=80',
-      }}
-      style={styles.trainingImage}
-    />
-    <Text style={styles.trainingTypeText}>Yoga</Text>
-  </View>
+  <Image
+    source={{
+      uri: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=800&q=80',
+    }}
+    style={styles.trainingImage}
+  />
+  <Text style={styles.trainingTypeText}>Yoga</Text>
+</View>
 
-  <View style={styles.trainingTypeCard}>
-    <Image
-      source={{
-        uri: 'https://images.unsplash.com/photo-1611251135344-205b3d270c3a?auto=format&fit=crop&w=800&q=80',
-      }}
-      style={styles.trainingImage}
-    />
-    <Text style={styles.trainingTypeText}>HIIT</Text>
-  </View>
+<View style={styles.trainingTypeCard}>
+<Image
+  source={{ uri: 'https://cdn.pixabay.com/photo/2016/11/21/12/59/woman-1847754_1280.jpg' }}
+  style={styles.trainingImage}
+/>
+  <Text style={styles.trainingTypeText}>HIIT</Text>
+</View>
         </ScrollView>
       </View>
          
@@ -119,7 +124,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    textAlign: 'center',
     color: '#ff7f00',
   },
   
@@ -189,11 +194,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
     textAlign: 'center',
-
   },
   trainingImage: {
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
     borderRadius: 75,
   },
   trainingTitle: {
@@ -201,5 +205,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#4caf50',
+  },
+  joinButton: {
+    marginTop: 10,
+    backgroundColor: '#ff7f00',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignItems: 'center',
+    alignSelf: 'Center',
+  },
+  
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
