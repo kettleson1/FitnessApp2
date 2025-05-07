@@ -21,8 +21,64 @@ const renderWorkoutCard = ({ item }) => (
     <Text style={styles.cardDuration}>Duration: {item.duration}</Text>
   </View>
 );
+const BeginnerPlan = [
+  {
+    id: '1',
+    title: 'Beginner Yoga',
+    description: '30 mins of guided yoga for beginners',
+    duration: '30 min',
+    imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07f?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: '2',
+    title: 'Light Cardio',
+    description: '20 mins of low-impact cardio',
+    duration: '20 min',
+    imageUrl: 'https://images.unsplash.com/photo-1583454110551-d744cb3c8f5f?auto=format&fit=crop&w=800&q=80',
+  },
+];
+
+const IntermediatePlan = [
+  {
+    id: '1',
+    title: 'Power Pilates',
+    description: '45 mins of full-body pilates',
+    duration: '45 min',
+    imageUrl: 'https://images.unsplash.com/photo-1583454110551-aaa4ff469af6?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    id: '2',
+    title: 'Core Training',
+    description: '30 mins of core strength exercises',
+    duration: '30 min',
+    imageUrl: 'https://images.unsplash.com/photo-1571019613913-37d6a4d2a79f?auto=format&fit=crop&w=800&q=80',
+  },
+];
+
+
+
+
 
 export default function FitnessWorld() {
+const renderWorkout = ({ item }) => (
+  <View style={styles.card}>
+    <Image source={{ uri: item.imageUrl }} style={styles.cardImage} />
+    <Text style={styles.cardTitle}>{item.title}</Text>
+    <Text style={styles.cardDescription}>{item.description}</Text>
+    <Text style={styles.cardDuration}>Duration: {item.duration}</Text>
+    <TouchableOpacity
+      style={styles.joinButton}
+      onPress={() => alert(`Joined ${item.title}`)}
+      testID="joinWorkoutButton"
+    >
+      <Text style={styles.buttonText}>Join Now</Text>
+    </TouchableOpacity>
+  </View>
+);
+
+
+
+
   return (
     <ScrollView style={styles.container}>
       <View>
@@ -74,14 +130,6 @@ export default function FitnessWorld() {
   />
   <Text style={styles.trainingTypeText}>Yoga</Text>
 </View>
-
-<View style={styles.trainingTypeCard}>
-<Image
-  source={{ uri: 'https://cdn.pixabay.com/photo/2016/11/21/12/59/woman-1847754_1280.jpg' }}
-  style={styles.trainingImage}
-/>
-  <Text style={styles.trainingTypeText}>HIIT</Text>
-</View>
         </ScrollView>
       </View>
          
@@ -89,25 +137,66 @@ export default function FitnessWorld() {
       <View style={styles.section}>
         <Text style={styles.heading}>Popular Workout Plans</Text>
         <FlatList
-          horizontal
           data={PopularWorkoutPlans}
+          renderItem={renderWorkout}
           keyExtractor={(item) => item.id}
-          renderItem={renderWorkoutCard}
+          horizontal={true}
           showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingHorizontal: 20,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}  
         />
       </View>
 
       <View style={styles.section}>
         <Text style={styles.heading}>Intense Workout Plans</Text>
         <FlatList
-          horizontal
           data={IntenseWorkoutPlans}
           keyExtractor={(item) => item.id}
           renderItem={renderWorkoutCard}
+          horizontal={true}
           showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingHorizontal: 20,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}  
         />
       </View>
 
+      <View style={styles.section}>
+      <Text style={styles.header}>Beginner's Workout Plan</Text>
+      <FlatList
+         data={BeginnerPlan}
+         renderItem={renderWorkout}
+        keyExtractor={(item) => item.id}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}  
+      />
+    </View>
+
+    <View style={styles.section}>
+    <Text style={styles.header}>Intermediate Workout Plan</Text>
+    <FlatList
+      data={IntermediatePlan}
+      renderItem={renderWorkout}
+      keyExtractor={(item) => item.id}
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{
+        paddingHorizontal: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}  
+    />
+    </View>
     </ScrollView>
   );
 }
@@ -116,15 +205,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: 'black',
+    backgroundColor: 'darkgray',
   },
   section: {
     marginBottom: 20,
   },
   header: {
-    fontSize: 24,
+    fontSize: 42,
     fontWeight: 'bold',
     textAlign: 'center',
+    paddingBottom: 20,
     color: '#ff7f00',
   },
   
@@ -132,31 +222,36 @@ const styles = StyleSheet.create({
   headerbenefits: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
+    paddingTop: 20,
+    textAlign: 'center',
     color: 'white',
   },
   text: {
     fontSize: 16,
+    textAlign: 'center',
     marginBottom: 5,
     color: '#fff',
   },
   workoutDescp: {
     color: 'white',
+    textAlign: 'center',
     marginBottom: 20,
-    textAlign: 'left',
   },
   heading: {
     fontSize: 20,
     fontWeight: 'bold',
+    paddingBottom: 20,
     color: 'white',
-    marginBottom: 10,
+    textAlign: 'center',
   },
   card: {
     width: 200,
-    marginRight: 16,
+    marginHorizontal: 10,
     borderRadius: 10,
     backgroundColor: '#fff',
     padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   cardImage: {
     width: '100%',
@@ -179,14 +274,9 @@ const styles = StyleSheet.create({
   },
 
   trainingTypeCard: {
-    backgroundColor: '#fff',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 20,
-    marginRight: 10,
+    marginRight: 20,
+    width: 150,
     alignItems: 'center',
-    justifyContent: 'center',
-    width: 120,
   },
   
   trainingTypeText: {
@@ -213,7 +303,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 8,
     alignItems: 'center',
-    alignSelf: 'Center',
+    alignSelf: 'center',
   },
   
   buttonText: {
